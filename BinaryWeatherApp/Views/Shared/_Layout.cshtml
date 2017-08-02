@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="~/Content/CustomStyle.css" />
+	<title>@ViewBag.Title</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+	<style>
+		a {
+			/*color: #4A60CE;*/
+			color: #18AAD0;
+		}
+
+		a:hover {
+				text-decoration: none;
+			}
+		body {
+			background: #A9E2F3;
+		}
+	</style>
+
+</head>
+
+<body class="body_style">
+	<header class="header_container">
+	<div class="header_home_link">
+		<a href='@Url.Action("Index", "Weather")' class="link">
+			<img src="~/Content/Icons/weather-icon.png" height="60" width="60" />
+		</a>
+	</div>
+	<div class="header_links">
+		<div class="header_link">
+			<a href='@Url.Action("Index", "Weather")' class="link" data-content="Home">
+				<img src="~/Content/Icons/home-icon.png" height="40" width="40" />
+				<br/> Home </a>
+		</div>
+		<div class="header_link">
+			<a href='@Url.Action("Index", "Requests")' class="link">
+				<img src="~/Content/Icons/requests-icon.png" height="40" width="40" />
+				<br /> Requests </a>
+		</div>
+		<div class="header_link" >
+			<a href='@Url.Action("Index", "Towns")' class="link">
+				<img src="~/Content/Icons/town-icon.png" height="40" width="40" />
+				<br /> Towns </a>
+		</div>
+	</div>
+</header>
+	<hr/>
+	<main>
+		@RenderBody()
+	</main>
+	<footer class=" footer">
+		<div class="footer_elem">
+			<p>Weather Forecast</p>
+			<p>In any city of the planet</p>
+		</div>
+		<div class="footer_elem">
+			<p>Kharkiv, Ukraine</p>
+			<p>+8-800-555-3535</p>
+		</div>
+	</footer>
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
+</body>
+</html>

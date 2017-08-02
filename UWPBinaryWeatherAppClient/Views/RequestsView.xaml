@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="UWPBinaryWeatherAppClient.Views.RequestsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPBinaryWeatherAppClient.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding HistoryVMInstance, Source={StaticResource Locator}}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="5,60,5,5">
+        <ListView ItemsSource="{Binding Requests}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="16" Background="Cyan">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24"/>
+                            <RowDefinition Height="24"/>
+                        </Grid.RowDefinitions>
+
+                        <Image Source="{Binding RequestImg}"  Grid.RowSpan="2" Grid.Column="0"/>
+                        <TextBlock Text="{Binding RequestTown}"
+                                   Foreground="Black"
+                                   FontSize="16"
+                                   FontWeight="ExtraBlack"
+                                   Padding="20,0,0,0"
+                                   Grid.Column="1"
+                                   Grid.Row="0"/>
+
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    >
+                            <TextBlock Text="{Binding RequestDate}"
+                                   FontSize="13"
+                                   FontWeight="Black"
+                                   Padding="0,0,0,0"/>
+                            <TextBlock Text=" | "
+                                   FontSize="13"
+                                   Padding="10,0,0,0"/>
+
+                            <TextBlock Text="{Binding RequestTemp}"
+                                   FontSize="13"
+                                   Padding="20,0,0,0"/>
+                            <TextBlock Text="°C"
+                                   FontSize="13"
+                                   Padding="0,0,0,0"/>
+                            <TextBlock Text=" | "
+                                   FontSize="13"
+                                   Padding="10,0,0,0"/>
+                            <TextBlock Text="{Binding RequestDays}"
+                                   FontSize="13"
+                                   Padding="20,0,0,0"/>
+                            <TextBlock Text="days"
+                                   FontSize="13"
+                                   Padding="0,0,15,0"/>
+                           
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

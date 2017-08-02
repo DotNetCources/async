@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="UWPBinaryWeatherAppClient.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPBinaryWeatherAppClient"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Frame Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" x:Name="Frame"/>
+        <CommandBar Background="#FF45BBFF" Height="69" Grid.RowSpan="2">
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton  Label="Weather" Click="WeatherNavigate"  Icon="World"/>
+            <AppBarButton Icon="Favorite" Label="Favorite Towns" Click="TownsNavigate"/>
+            <AppBarButton Icon="List" Label="Requests history" Click="RequestsNavigate"/>
+        </CommandBar>
+    </Grid>
+</Page>

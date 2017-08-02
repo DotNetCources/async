@@ -1,0 +1,21 @@
+﻿@model IEnumerable<BinaryWeatherApp.Models.Town>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div>
+        <h3>Распродажа книг</h3>
+        <table>
+            <tr class="header"><td><p>Название книги</p></td>
+                <td><p>Автор</p></td>
+                <td><p>Цена</p></td><td></td>
+            </tr>
+            @foreach (BinaryWeatherApp.Models.Town b in Model)
+            {
+            <tr>
+                <td><p>@b.TownId</p></td>				
+                <td><p>@b.TownName</p></td>
+                <td><p><a href="/Home/Buy/@b.TownId">Купить</a></p></td>
+            </tr>
+            }
+        </table>
+    </div>

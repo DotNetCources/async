@@ -1,0 +1,45 @@
+﻿@model BinaryWeatherApp.Models.Forecast
+	
+<style type="text/css">
+	table {
+		color: #4F4B79;
+		background: /*#5BF0E8*/ #56DED7;
+		font-family: Century;
+	}
+</style>
+<body>
+
+	@if (Model != null)
+	{
+		<hr />
+		<p><strong> Weather in @Model.city: </strong></p>
+
+
+		<table class="table-bordered" align="center">
+			<tr>
+				<td>Date</td>
+				<td> <div class="table_item" align="center"> Morning </div> </td>
+				<td class="table_item" align="center"> Afternoon </td>
+				<td class="table_item" align="center"> Evening </td>
+				<td class="table_item" align="center"> Night </td>
+				<td class="table_item" align="center"> Humidity </td>
+				<td class="table_item" align="center"> Pressure </td>
+				<td ></td>
+			</tr>
+			@foreach (var x in Model.GetDailyList())
+			{
+				<tr>
+					<td class="table_item" align="center"> @x.date </td>
+					<td class="table_item" align="center"> @x.morning °C </td>
+					<td class="table_item"align="center"> @x.day °C </td>
+					<td class="table_item" align="center"> @x.evening °C </td>
+					<td class="table_item" align="center"> @x.night °C </td>
+					<td class="table_item" align="center">@x.humidity %</td>
+					<td class="table_item" align="center"> @x.pressure hPa </td>
+					<td><img src="@x.icon" height="50" width="50"></td>
+				</tr>
+			}
+		</table>
+	}
+</body>
+

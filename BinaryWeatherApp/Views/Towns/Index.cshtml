@@ -1,0 +1,27 @@
+﻿@model List<BinaryWeatherApp.Models.Town>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Favorite Towns</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TownName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TownId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TownId })
+        </td>
+    </tr>
+}
+
+</table>
+<h4 align="center"> @Html.ActionLink("Back", "Index", "Weather") </h4>
